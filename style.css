@@ -1,0 +1,180 @@
+/* Сброс стандартных отступов и полей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Устанавливаем серый фон для всей страницы */
+body {
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка с логотипом */
+header {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff; /* Белый фон для шапки */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для шапки */
+}
+
+/* Стили для логотипа */
+.logo {
+    max-width: 150px; /* Размер логотипа по умолчанию */
+    height: auto;
+}
+
+/* Основной контент */
+main {
+    flex: 1; /* Растягиваем основной контент на всю доступную высоту */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Выравниваем контент по верхнему краю */
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+/* Заголовок */
+main h1 {
+    margin-bottom: 10px; /* Отступ снизу для заголовка */
+}
+
+/* Параграф */
+main p {
+    margin-bottom: 20px; /* Отступ снизу для текста */
+}
+
+/* Видео-контейнер */
+.video-container {
+    margin-top: 20px; /* Отступ сверху для видео */
+}
+
+/* Футер с солдатами */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+    background-color: #ffffff; /* Белый фон для футера */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Тень сверху футера */
+}
+
+/* Стили для солдат */
+.soldier {
+    max-height: 200px; /* Высота солдат */
+    width: auto;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 120px; /* Уменьшаем логотип на мобильных устройствах */
+    }
+
+    header {
+        padding: 10px; /* Уменьшаем отступы на мобильных устройствах */
+    }
+
+    .soldier {
+        max-height: 121px; /* Уменьшаем высоту солдат на мобильных устройствах */
+    }
+
+    .video-container {
+        position: relative;
+        max-width: 250px; /* Максимальная ширина плеера */
+        margin: 0 auto; /* Центрирование */
+    }
+    
+    video {
+        width: 100%;
+        border-radius: 10px; /* Закругленные углы */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    }
+    
+    .custom-controls {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+        padding: 10px;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .video-container:hover .custom-controls {
+        opacity: 1; /* Показываем элементы управления при наведении */
+    }
+    
+    button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    input[type="range"] {
+        width: 100px;
+    }
+}
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid #7d7d2d;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    font-size: 2rem; /* Оптимальный размер */
+    display: inline-block;
+    max-width: 0;
+    animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* Измененная анимация */
+@keyframes typing {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 30ch; /* Количество символов в строке */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #7d7d2d;
+    }
+}
+
+/* 📱 Адаптация для мобильных */
+@media (max-width: 768px) {
+    .typewriter {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        animation: typing 2.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            max-width: 0;
+        }
+        to {
+            max-width: 35ch; /* Количество символов в строке на мобилках */
+        }
+    }
+}
