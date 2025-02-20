@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>нац гвардия сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Логотип" class="logo">
+    </header>
+    <main>
+        <h1 >2 БАТАЛЬОН ОПЕРАТИВНОГО НАЗНАЧЕНИЯ</h1>     
+                   <h3>2 ДЕНЬ</h3>
+                   <h3>ТСЗ по ОСГ "ГОНГ"</h3>
+                   <br>
+        <div class="video-container">
+            <video id="custom-video" width="100%">
+                <source src="Мой фильм.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="custom-controls">
+                <button id="play-pause">▶️</button>
+                <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+                <button id="fullscreen">⛶</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер с солдатами -->
+    <footer>
+        <img src="aka.png" alt="Солдат слева" style="transform: rotate(344deg);" class="soldier left">
+        <img class="soldier right" src="aka.png" style="transform: scaleX(-1) rotate(344deg);" alt="Отзеркаленное изображение">    </footer>
+    <script>
+        const video = document.getElementById('custom-video');
+const playPauseButton = document.getElementById('play-pause');
+const volumeControl = document.getElementById('volume');
+const fullscreenButton = document.getElementById('fullscreen');
+
+// Управление воспроизведением
+playPauseButton.addEventListener('click', () => {
+    if (video.paused) {
+        video.play();
+        playPauseButton.textContent = '⏸️';
+    } else {
+        video.pause();
+        playPauseButton.textContent = '▶️';
+    }
+});
+
+// Управление громкостью
+volumeControl.addEventListener('input', () => {
+    video.volume = volumeControl.value;
+});
+
+// Полноэкранный режим
+fullscreenButton.addEventListener('click', () => {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) { /* Firefox */
+        video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) { /* Chrome, Safari */
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE/Edge */
+        video.msRequestFullscreen();
+    }
+});
+
+    </script>
+</body>
+</html>

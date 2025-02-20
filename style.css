@@ -89,7 +89,7 @@ footer {
 
     .video-container {
         position: relative;
-        max-width: 250px; /* Максимальная ширина плеера */
+        max-width: 230px; /* Максимальная ширина плеера */
         margin: 0 auto; /* Центрирование */
     }
     
